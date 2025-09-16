@@ -82,13 +82,19 @@ Partendo da
 \frac{\sin^{2}\bigl[\xi\,\tilde{\Xi}(\theta)\bigr]}{\tilde{\Xi}(\theta)^{2}},
 \end{equation}
 si usa il limite distribuzionale $\sin^{2}(\xi x)/x^{2}\to \pi\xi\,\delta(x)$ per $\xi\to\infty$. Lo zero di $\tilde{\Xi}$ è $\cos\theta_C=\tfrac{c}{nv}$ e la derivata $\tilde{\Xi}'(\theta)=\tfrac{\w n}{c}\sin\theta$. L'integrale angolare dà $c/(\w n)$ e, con $L=2\xi$,
+\begin{equation}
 \frac{\dd \Eclas}{\dd \w}=\frac{q^{2}\,\w\,L}{c^{2}}\Bigl(1-\frac{c^{2}}{n^{2}v^{2}}\Bigr).
+\end{equation}
 
+\begin{equation}
 \frac{dE_{\rm clas}}{d\om}=
 \frac{2\nn\om^2 q^2}{\pi \cc^3}\Bigl(1-\frac{\cc^2}{\nn^2\vv^2}\Bigr)
 \int_0^\pi \! d\theta \,\sin\theta\,\frac{\sin^2[\xi\,\Xi(\theta)]}{\Xi(\theta)^2},
+\end{equation}
 con $\Xi(\theta)=\frac{\om}{\vv}\bigl(1-\frac{\nn \vv}{\cc}\cos\theta\bigr)$, nel limite di traccia lunga
+\begin{equation}
 \frac{\sin^2(\xi x)}{x^2}\xrightarrow[\xi\to\infty]{}\pi\xi\,\delta(x).
+\end{equation}
 Dunque
 \begin{align}
 \int_0^\pi \!\sin\theta\,\frac{\sin^2[\xi\,\Xi]}{\Xi^2}\,d\theta
@@ -99,7 +105,9 @@ Dunque
 \end{align}
 dove $\cos\theta_C=\cc/(\nn \vv)$ e $\Xi'=\partial_\theta \Xi=(\om \nn/\cc)\sin\theta$.
 Sostituendo e usando $L=2\xi$:
-\boxed{\ \frac{dE_{\rm clas}}{d\om}=\frac{q^2\om L}{\cc^2}\Bigl(1-\frac{\cc^2}{\nn^2\vv^2}\Bigr)\ }.
+\begin{equation}
+\boxed{\ \frac{dE_{\rm clas}}{d\om}=\frac{q^2\om L}{\cc^2}\Bigl(1-\frac{\cc^2}{\nn^2\vv^2}\Bigr)\ }
+\end{equation}
 
 \section{Funzione di Green esatta, far field e workflow}
 La GF tensoria $G^{\mu\nu}$ si scrive come operatore differenziale su una funzione scalare ausiliaria $f(\vb{x},\vb{x}';\w)$. Nello spazio reale $f$ ammette la rappresentazione (tipo Weyl/Sommerfeld)
@@ -108,12 +116,15 @@ f(\vb{x},\vb{x}';\w)=\frac{i}{8\pi}\int_{0}^{\infty}\frac{\kperp \,\dd\kperp}{\k
 \Biggl[\frac{e^{i\sqrt{\kpar^{2}+b\kpar}\,z}}{\sqrt{\kpar^{2}+b\kpar}}-\frac{e^{i\sqrt{\kpar^{2}-b\kpar}\,z}}{\sqrt{\kpar^{2}-b\kpar}}\Biggr],
 \end{equation}
 che è \textbf{esatta} e include sia campo lontano sia contributi evanescenti; quindi non è né far field né SPA.
-\\[2mm]
+\medskip
 Per la \textbf{zona di radiazione} ($r\to\infty$, con $z=r\cos\theta$, $\Rperp=r\sin\theta$) si applica la \emph{stationary phase} (SPA) sull'integrale in $\kperp$ e si ottiene
-f(\vb{x},\vb{x}';\w)\;\simeq\;\frac{1}{8\pi r}\sum_{\eta=\pm}\frac{e^{i k_{0}\, \Ceta(\theta)\,r}}{g_{\eta}(\theta)}\qquad (r\to\infty),
+\begin{equation}
+f(\vb{x},\vb{x}';\w)\simeq\frac{1}{8\pi r}\sum_{\eta=\pm}\frac{e^{i k_{0}\, \Ceta(\theta)\,r}}{g_{\eta}(\theta)},
+\qquad (r\to\infty).
+\end{equation}
 da cui discende la parte radiativa di $G^{\mu\nu}$.
 
-{f}: cosa \`e e quando si usa}
+\subsection*{\texorpdfstring{$f$}{f}: cosa \`e e quando si usa}
 \begin{itemize}
   \item La rappresentazione di Weyl/Sommerfeld per $f$ (integrale con $J_0$) \textbf{non} \`e far-field: contiene anche campo vicino ed evanescenze.
   \item Per il \textbf{far field} si usa la \textbf{SPA} sull'integrale di $f$.
@@ -140,9 +151,8 @@ che seleziona gli angoli $\theta=\theta_{\eta}$ dove si forma il cono. Nel limit
 \begin{equation}
 \frac{d^2E_\eta}{d\Omega\,d\om}=\frac{\nn\om^2 q^2}{4\pi^2 \cc^3}\,
 \Kt_\eta(\om,\theta)\,\frac{\sin^2[\xi\,\Xit_\eta]}{\Xit_\eta^2},
-\qquad
-\Kt_\eta=\frac{\Tt_{1;\eta}}{\gt_\eta^2}.
-Definizioni operative (utili per i conti):
+\end{equation}
+dove $\Kt_\eta=\Tt_{1;\eta}/\gt_\eta^2$. Definizioni operative (utili per i conti):
 \begin{align}
 \pt_\eta&=\sin\theta+\eta\,\betat\,\tan\theta+\frac{\cc}{\nn\vv}\,\partial_\theta \Ct_\eta,\\
 \qt_\eta&=\cos\theta+\eta\,\betat-\frac{\cc}{\nn\vv}\,\Ct_\eta,\\
@@ -150,41 +160,49 @@ Definizioni operative (utili per i conti):
 \end{align}
 Il fattore $\gt_\eta(\theta)$ viene dalla normalizzazione SPA (ampiezza angolare); la forma esplicita dipende da $\betat$ e $\theta$ (come nel paper).
 
-erenkov (chirale).}
+\subsection{Čerenkov (chirale)}
 Dal limite $\sin^2(\xi x)/x^2\to\pi\xi \delta(x)$ segue
-\boxed{\ \cos\theta\,\Ct_\eta(\theta)=\frac{\cc}{\nn \vv}\ }\qquad (\theta=\theta_\eta),
+\begin{equation}
+\boxed{\ \cos\theta\,\Ct_\eta(\theta)=\frac{\cc}{\nn \vv}\ }\qquad (\theta=\theta_\eta).
+\end{equation}
 che fissa gli angoli dei coni $\theta_\pm$.
 
-_\eta$}{H}: definizione e ruolo}
+\subsection*{\texorpdfstring{$H^{\mu\nu}_\eta$}{H^{munu}\_eta}: definizione e ruolo}
 $H^{\mu\nu}_\eta(\bn)$ nasce dall'azione degli operatori su $f$ esatta e dalla successiva SPA; \emph{non} si definisce imponendo la condizione di \v{C}erenkov. Nelle osservabili angolari, $H^{\mu\nu}_\eta$ si \emph{valuta} a $\theta=\theta_\eta$ (selezionati dalla $\delta$).
 
 \section{Rapporti energetici e lettura fisica}
-$ e $R_{-}/R_{+}$}
+\subsection{\texorpdfstring{$R_\eta$ e $R_-/R_+$}{R\_eta e R\_-/R\_+}}
 Dal calcolo far-field:
 \begin{equation}
-R_{\eta}=
-\frac{1}{4}\,\frac{1}{1-\dfrac{c^{2}}{n^{2}v^{2}}}
-\Biggl[\frac{\sin\theta\;\tilde{K}_{\eta}(\w,\theta)}{\bigl|\sin\theta\,\tilde{C}_{\eta}(\theta)-\cos\theta\,\partial_{\theta}\tilde{C}_{\eta}(\theta)\bigr|}\Biggr]_{\theta=\theta_{\eta}}.
+R_{\eta}=\frac{1}{4}\,\frac{1}{1-\dfrac{\cc^{2}}{\nn^{2}\vv^{2}}}
+\Biggl[\frac{\sin\theta\,\Kt_{\eta}(\w,\theta)}{\bigl|\sin\theta\,\Ct_{\eta}(\theta)-\cos\theta\,\partial_{\theta}\Ct_{\eta}(\theta)\bigr|}\Biggr]_{\theta=\theta_{\eta}}.
 \end{equation}
 Il rapporto tra i coni è
-\frac{R_{-}}{R_{+}}=\frac{\sin\theta_{-}\,\tilde{K}_{-}(\w,\theta_{-})}{\sin\theta_{+}\,\tilde{K}_{+}(\w,\theta_{+})}\cdot
-\frac{\bigl|\sin\theta\,\tilde{C}_{+}-\cos\theta\,\partial_{\theta}\tilde{C}_{+}\bigr|_{\theta=\theta_{+}}}{\bigl|\sin\theta\,\tilde{C}_{-}-\cos\theta\,\partial_{\theta}\tilde{C}_{-}\bigr|_{\theta=\theta_{-}}}.
+\begin{equation}
+\frac{R_{-}}{R_{+}}=\frac{\sin\theta_{-}\,\Kt_{-}(\w,\theta_{-})}{\sin\theta_{+}\,\Kt_{+}(\w,\theta_{+})}
+\frac{\bigl|\sin\theta\,\Ct_{+}-\cos\theta\,\partial_{\theta}\Ct_{+}\bigr|_{\theta=\theta_{+}}}{\bigl|\sin\theta\,\Ct_{-}-\cos\theta\,\partial_{\theta}\Ct_{-}\bigr|_{\theta=\theta_{-}}}.
+\end{equation}
 
-{R\_eta} e \texorpdfstring{$R_-/R_+$}{R-/R+}}
 Energia per cono (integrando sugli angoli via $\delta$):
+\begin{equation}
 \frac{dE_\eta}{d\om}=\frac{\om q^2 L}{4\cc^2}\,
 \biggl[\frac{\sin\theta\,\Kt_\eta(\om,\theta)}
 {\bigl|\sin\theta\,\Ct_\eta(\theta)-\cos\theta\,\partial_\theta \Ct_\eta(\theta)\bigr|}\biggr]_{\theta=\theta_\eta}.
+\end{equation}
 Rapporto rispetto al caso classico (Frank--Tamm):
+\begin{equation}
 \boxed{\ R_\eta=\frac{dE_\eta/d\om}{dE_{\rm clas}/d\om}
 =\frac{1}{4}\frac{1}{1-\cc^2/(\nn^2\vv^2)}\,
-\biggl[\frac{\sin\theta\,\Kt_\eta}{\bigl|\sin\theta\,\Ct_\eta-\cos\theta\,\partial_\theta \Ct_\eta\bigr|}\biggr]_{\theta=\theta_\eta}\ }.
+\biggl[\frac{\sin\theta\,\Kt_\eta}{\bigl|\sin\theta\,\Ct_\eta-\cos\theta\,\partial_\theta \Ct_\eta\bigr|}\biggr]_{\theta=\theta_\eta}\ }
+\end{equation}
 Confronto tra coni:
+\begin{equation}
 \boxed{\ \frac{R_-}{R_+}
 =\frac{\sin\theta_-\,\Kt_-(\om,\theta_-)}{\sin\theta_+\,\Kt_+(\om,\theta_+)}
 \cdot
 \frac{\bigl|\sin\theta\,\Ct_+ - \cos\theta\,\partial_\theta\Ct_+\bigr|_{\theta_+}}
-{\bigl|\sin\theta\,\Ct_- - \cos\theta\,\partial_\theta\Ct_-\bigr|_{\theta_-}}\ }.
+{\bigl|\sin\theta\,\Ct_- - \cos\theta\,\partial_\theta\Ct_-\bigr|_{\theta_-}}\ }
+\end{equation}
 
 Per $\betat\to 0$: $R_+\simeq R_-\simeq 0.5$. Aumentando $\betat$, il cono ``inner'' $\theta_-$ si restringe e scompare $\Rightarrow R_-\to 0$, mentre $R_+$ domina.
 
@@ -201,7 +219,9 @@ Nel vuoto ($n=1$, $v=c$) per il ramo $+$:
 \cos\theta_{+}\,\Cplus(\theta_{+})=1,\qquad \Cplus(\theta)\simeq 1+\frac{\beta}{2}\cos\theta \ (\beta\ll1),
 \end{equation}
 da cui (eq. 106)
-\cos\theta_{+}\Bigl(1+\tfrac{\beta}{2}\cos\theta_{+}\Bigr)=1 \;\Rightarrow\; \cos\theta_{+}=1-\frac{\beta}{2}.
+\begin{equation}
+\cos\theta_{+}\Bigl(1+\tfrac{\beta}{2}\cos\theta_{+}\Bigr)=1 \Rightarrow \cos\theta_{+}=1-\frac{\beta}{2}.
+\end{equation}
 Per $\theta_{+}\ll1$, $\theta_{+}\simeq \sqrt{\beta}$.
 
 \end{document}
