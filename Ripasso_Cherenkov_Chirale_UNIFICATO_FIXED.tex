@@ -1,0 +1,207 @@
+\documentclass[11pt,a4paper]{article}
+% ---------- Packages ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\let\Bbbk\relax
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{amsmath,mathtools}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+% ---------- Macros (unione) ----------
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\vv}{v}
+\newcommand{\cc}{c}
+\newcommand{\nn}{n}
+\newcommand{\om}{\omega}
+\newcommand{\w}{\omega}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bn}{\hat{\mathbf n}}
+\newcommand{\rhat}{\hat{\mathbf r}}
+\newcommand{\Xit}{\wt{\Xi}}
+\newcommand{\Ct}{\wt{C}}
+\newcommand{\Kt}{\wt{K}}
+\newcommand{\gt}{\wt{g}}
+\newcommand{\pt}{\wt{p}}
+\newcommand{\qt}{\wt{q}}
+\newcommand{\Tt}{\wt{T}}
+\newcommand{\betat}{\wt{\beta}} % effective chiral parameter = beta/n^2
+\newcommand{\bbeta}{\tilde{\beta}}          % beta tilde = beta / n^2
+\newcommand{\Ceta}{C_{\eta}}
+\newcommand{\Cplus}{C_{+}}
+\newcommand{\Cminus}{C_{-}}
+\newcommand{\kpar}{k_{\parallel}}
+\newcommand{\kperp}{k_{\perp}}
+\newcommand{\Rperp}{R_{\perp}}
+\newcommand{\Eclas}{E_{\text{clas}}}
+\newcommand{\dd}{\mathrm{d}}
+
+\title{Ripasso unico --- Cherenkov nei mezzi chirali (CFJ)}
+\author{(Appunti riassuntivi unificati)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Questi appunti riassumono i punti chiave emersi in chat sulla radiazione di \emph{Cherenkov} in mezzi chirali nel modello di \textit{Carroll--Field--Jackiw} (CFJ), con attenzione a: funzione di Green, approssimazioni di far field/SPA, condizione di Čerenkov modificata, derivazione della Frank--Tamm classica, rapporti di contributo dei due coni $R_{\eta}$, interpretazione dei grafici polari (``radial lines'') e limite di piccolo angolo nel vuoto con risultato $\theta_{+}\simeq\sqrt{\beta}$.
+\end{abstract}
+
+\section{Setup e notazione chiave}
+\begin{itemize}
+  \item Vettore di chiralità spaziale $\vb{b}$ parallelo alla velocità della carica; indice $n$ reale e costante, mezzo non dispersivo e non dissipativo.
+  \item Parametro chirale adimensionale: $\displaystyle \beta=\frac{b\,c}{\w}$ e nel mezzo \emph{conta} la combinazione \emph{effettiva} $\displaystyle \bbeta=\frac{\beta}{n^{2}}$.
+  \item Birifrangenza: due rami indipendenti ($\eta=\pm$) per propagazione e radiazione; emergono al più due coni di Čerenkov, $\theta_{+}$ (outer) e $\theta_{-}$ (inner).
+\end{itemize}
+\begin{itemize}
+
+  \item Mezzo dielettrico chirale (CFJ) con indice $\nn>1$, carica $q$ di velocit\`a $\vv$.
+  \item Parametri: $u=\vv/\cc$, $\betat=\beta/\nn^2$.
+  \item Fase di propagazione per il ramo $\eta=\pm1$:
+  \begin{equation}
+    \Xit_\eta(\om,\theta)=\frac{\om}{\vv}\Bigl[1-\frac{\nn \vv}{\cc}\,\Ct_\eta(\theta)\cos\theta\Bigr].
+  \end{equation}
+  \item Funzione angolare (n>1, forma tilde):
+    \Ct_\eta(\theta)=\sin^2\theta+\cos^2\theta\,\sqrt{\,1+\eta\,\betat\,\sec\theta\,}.
+\end{itemize}
+
+\section{Classico (Frank--Tamm) e richiamo}
+Partendo da
+\begin{equation}
+\frac{\dd \Eclas}{\dd \w}=\frac{2 n \w^{2} q^{2}}{\pi c^{3}}\Bigl(1-\frac{c^{2}}{n^{2}v^{2}}\Bigr)\int_{0}^{\pi}\dd\theta\,\sin\theta\;
+\frac{\sin^{2}\bigl[\xi\,\tilde{\Xi}(\theta)\bigr]}{\tilde{\Xi}(\theta)^{2}},
+\end{equation}
+si usa il limite distribuzionale $\sin^{2}(\xi x)/x^{2}\to \pi\xi\,\delta(x)$ per $\xi\to\infty$. Lo zero di $\tilde{\Xi}$ è $\cos\theta_C=\tfrac{c}{nv}$ e la derivata $\tilde{\Xi}'(\theta)=\tfrac{\w n}{c}\sin\theta$. L'integrale angolare dà $c/(\w n)$ e, con $L=2\xi$,
+\frac{\dd \Eclas}{\dd \w}=\frac{q^{2}\,\w\,L}{c^{2}}\Bigl(1-\frac{c^{2}}{n^{2}v^{2}}\Bigr).
+
+\frac{dE_{\rm clas}}{d\om}=
+\frac{2\nn\om^2 q^2}{\pi \cc^3}\Bigl(1-\frac{\cc^2}{\nn^2\vv^2}\Bigr)
+\int_0^\pi \! d\theta \,\sin\theta\,\frac{\sin^2[\xi\,\Xi(\theta)]}{\Xi(\theta)^2},
+con $\Xi(\theta)=\frac{\om}{\vv}\bigl(1-\frac{\nn \vv}{\cc}\cos\theta\bigr)$, nel limite di traccia lunga
+\frac{\sin^2(\xi x)}{x^2}\xrightarrow[\xi\to\infty]{}\pi\xi\,\delta(x).
+Dunque
+\begin{align}
+\int_0^\pi \!\sin\theta\,\frac{\sin^2[\xi\,\Xi]}{\Xi^2}\,d\theta
+&\to \pi\xi\int_0^\pi \!\sin\theta\,\delta(\Xi(\theta))\,d\theta
+=\pi\xi\,\frac{\sin\theta_C}{|\Xi'(\theta_C)|} \\
+&=\pi\xi\,\frac{\sin\theta_C}{(\om \nn/\cc)\sin\theta_C}
+=\pi\xi\,\frac{\cc}{\om \nn},
+\end{align}
+dove $\cos\theta_C=\cc/(\nn \vv)$ e $\Xi'=\partial_\theta \Xi=(\om \nn/\cc)\sin\theta$.
+Sostituendo e usando $L=2\xi$:
+\boxed{\ \frac{dE_{\rm clas}}{d\om}=\frac{q^2\om L}{\cc^2}\Bigl(1-\frac{\cc^2}{\nn^2\vv^2}\Bigr)\ }.
+
+\section{Funzione di Green esatta, far field e workflow}
+La GF tensoria $G^{\mu\nu}$ si scrive come operatore differenziale su una funzione scalare ausiliaria $f(\vb{x},\vb{x}';\w)$. Nello spazio reale $f$ ammette la rappresentazione (tipo Weyl/Sommerfeld)
+\begin{equation}
+f(\vb{x},\vb{x}';\w)=\frac{i}{8\pi}\int_{0}^{\infty}\frac{\kperp \,\dd\kperp}{\kpar}\,J_{0}(\Rperp \kperp)\,\frac{1}{b}
+\Biggl[\frac{e^{i\sqrt{\kpar^{2}+b\kpar}\,z}}{\sqrt{\kpar^{2}+b\kpar}}-\frac{e^{i\sqrt{\kpar^{2}-b\kpar}\,z}}{\sqrt{\kpar^{2}-b\kpar}}\Biggr],
+\end{equation}
+che è \textbf{esatta} e include sia campo lontano sia contributi evanescenti; quindi non è né far field né SPA.
+\\[2mm]
+Per la \textbf{zona di radiazione} ($r\to\infty$, con $z=r\cos\theta$, $\Rperp=r\sin\theta$) si applica la \emph{stationary phase} (SPA) sull'integrale in $\kperp$ e si ottiene
+f(\vb{x},\vb{x}';\w)\;\simeq\;\frac{1}{8\pi r}\sum_{\eta=\pm}\frac{e^{i k_{0}\, \Ceta(\theta)\,r}}{g_{\eta}(\theta)}\qquad (r\to\infty),
+da cui discende la parte radiativa di $G^{\mu\nu}$.
+
+{f}: cosa \`e e quando si usa}
+\begin{itemize}
+  \item La rappresentazione di Weyl/Sommerfeld per $f$ (integrale con $J_0$) \textbf{non} \`e far-field: contiene anche campo vicino ed evanescenze.
+  \item Per il \textbf{far field} si usa la \textbf{SPA} sull'integrale di $f$.
+  \item Scelta corretta dell'ordine delle operazioni: \textbf{applicare gli operatori} su $f_\eta$ \textbf{esatta}, \textbf{poi} valutare gli integrali risultanti con SPA $\Rightarrow$ $G^{\mu\nu}_{\rm far}\propto \ee^{\ii k_0 \Ct_\eta(\theta) r}/(r\,\gt_\eta)\,H^{\mu\nu}_\eta(\bn)$.
+\end{itemize}
+
+\begin{enumerate}
+  \item $G^{\mu\nu}=\mathcal{D}^{\mu\nu}[\,f\,]$ con $f$ in forma esatta (Weyl).
+  \item SPA su $f$ (diagnostica) $\Rightarrow$ condizione dei coni $\theta_\eta$.
+  \item Applico gli operatori a $f$ esatta $\Rightarrow$ integrali per $G^{\mu\nu}$; poi SPA $\Rightarrow$ $G^{\mu\nu}_{\rm far}$.
+  \item Convolvo $G^{\mu\nu}_{\rm far}$ con $J$ della sorgente generica $\Rightarrow$ campi/SED nel far field.
+\end{enumerate}
+
+\bigskip
+\noindent\textit{Nota pratica}: per near-field o risultati non-asintotici, bisogna ripartire dall'integrale esatto per $f$ e valutare numericamente.
+
+\section{Caso chirale: SED, condizione di Čerenkov e matrice $H^{\mu\nu}$}
+Per ciascun ramo vale la condizione
+\begin{equation}\label{eq:cher}
+\cos\theta\,\Ceta(\theta)=\frac{c}{n v},
+\end{equation}
+che seleziona gli angoli $\theta=\theta_{\eta}$ dove si forma il cono. Nel limite $\bbeta\to0$, $\Ceta(\theta)\to 1$ e \eqref{eq:cher} si riduce alla condizione standard.
+
+\begin{equation}
+\frac{d^2E_\eta}{d\Omega\,d\om}=\frac{\nn\om^2 q^2}{4\pi^2 \cc^3}\,
+\Kt_\eta(\om,\theta)\,\frac{\sin^2[\xi\,\Xit_\eta]}{\Xit_\eta^2},
+\qquad
+\Kt_\eta=\frac{\Tt_{1;\eta}}{\gt_\eta^2}.
+Definizioni operative (utili per i conti):
+\begin{align}
+\pt_\eta&=\sin\theta+\eta\,\betat\,\tan\theta+\frac{\cc}{\nn\vv}\,\partial_\theta \Ct_\eta,\\
+\qt_\eta&=\cos\theta+\eta\,\betat-\frac{\cc}{\nn\vv}\,\Ct_\eta,\\
+\Tt_{1;\eta}&=\Bigl(\pt_\eta^2+\frac{\cc^2}{\nn^2\vv^2}\tan^2\theta\Bigr)\Ct_\eta+\pt_\eta\qt_\eta\,\partial_\theta \Ct_\eta.
+\end{align}
+Il fattore $\gt_\eta(\theta)$ viene dalla normalizzazione SPA (ampiezza angolare); la forma esplicita dipende da $\betat$ e $\theta$ (come nel paper).
+
+erenkov (chirale).}
+Dal limite $\sin^2(\xi x)/x^2\to\pi\xi \delta(x)$ segue
+\boxed{\ \cos\theta\,\Ct_\eta(\theta)=\frac{\cc}{\nn \vv}\ }\qquad (\theta=\theta_\eta),
+che fissa gli angoli dei coni $\theta_\pm$.
+
+_\eta$}{H}: definizione e ruolo}
+$H^{\mu\nu}_\eta(\bn)$ nasce dall'azione degli operatori su $f$ esatta e dalla successiva SPA; \emph{non} si definisce imponendo la condizione di \v{C}erenkov. Nelle osservabili angolari, $H^{\mu\nu}_\eta$ si \emph{valuta} a $\theta=\theta_\eta$ (selezionati dalla $\delta$).
+
+\section{Rapporti energetici e lettura fisica}
+$ e $R_{-}/R_{+}$}
+Dal calcolo far-field:
+\begin{equation}
+R_{\eta}=
+\frac{1}{4}\,\frac{1}{1-\dfrac{c^{2}}{n^{2}v^{2}}}
+\Biggl[\frac{\sin\theta\;\tilde{K}_{\eta}(\w,\theta)}{\bigl|\sin\theta\,\tilde{C}_{\eta}(\theta)-\cos\theta\,\partial_{\theta}\tilde{C}_{\eta}(\theta)\bigr|}\Biggr]_{\theta=\theta_{\eta}}.
+\end{equation}
+Il rapporto tra i coni è
+\frac{R_{-}}{R_{+}}=\frac{\sin\theta_{-}\,\tilde{K}_{-}(\w,\theta_{-})}{\sin\theta_{+}\,\tilde{K}_{+}(\w,\theta_{+})}\cdot
+\frac{\bigl|\sin\theta\,\tilde{C}_{+}-\cos\theta\,\partial_{\theta}\tilde{C}_{+}\bigr|_{\theta=\theta_{+}}}{\bigl|\sin\theta\,\tilde{C}_{-}-\cos\theta\,\partial_{\theta}\tilde{C}_{-}\bigr|_{\theta=\theta_{-}}}.
+
+{R\_eta} e \texorpdfstring{$R_-/R_+$}{R-/R+}}
+Energia per cono (integrando sugli angoli via $\delta$):
+\frac{dE_\eta}{d\om}=\frac{\om q^2 L}{4\cc^2}\,
+\biggl[\frac{\sin\theta\,\Kt_\eta(\om,\theta)}
+{\bigl|\sin\theta\,\Ct_\eta(\theta)-\cos\theta\,\partial_\theta \Ct_\eta(\theta)\bigr|}\biggr]_{\theta=\theta_\eta}.
+Rapporto rispetto al caso classico (Frank--Tamm):
+\boxed{\ R_\eta=\frac{dE_\eta/d\om}{dE_{\rm clas}/d\om}
+=\frac{1}{4}\frac{1}{1-\cc^2/(\nn^2\vv^2)}\,
+\biggl[\frac{\sin\theta\,\Kt_\eta}{\bigl|\sin\theta\,\Ct_\eta-\cos\theta\,\partial_\theta \Ct_\eta\bigr|}\biggr]_{\theta=\theta_\eta}\ }.
+Confronto tra coni:
+\boxed{\ \frac{R_-}{R_+}
+=\frac{\sin\theta_-\,\Kt_-(\om,\theta_-)}{\sin\theta_+\,\Kt_+(\om,\theta_+)}
+\cdot
+\frac{\bigl|\sin\theta\,\Ct_+ - \cos\theta\,\partial_\theta\Ct_+\bigr|_{\theta_+}}
+{\bigl|\sin\theta\,\Ct_- - \cos\theta\,\partial_\theta\Ct_-\bigr|_{\theta_-}}\ }.
+
+Per $\betat\to 0$: $R_+\simeq R_-\simeq 0.5$. Aumentando $\betat$, il cono ``inner'' $\theta_-$ si restringe e scompare $\Rightarrow R_-\to 0$, mentre $R_+$ domina.
+
+\section{Grafici polari e ``radial lines''}
+Nei plot polari della SED $r(\theta)=\dd^{2}E/(\dd\w\,\dd\Omega)$:
+\begin{itemize}
+  \item le ``radial lines'' sono i segmenti dal centro agli angoli $\theta_{\pm}$; la lunghezza è proporzionale all'intensità locale;
+  \item con $\bbeta$ crescente, $\theta_{+}$ si allarga, $\theta_{-}$ si restringe fino a scomparire.
+\end{itemize}
+
+\section{Limite di piccolo angolo (vuoto)}
+Nel vuoto ($n=1$, $v=c$) per il ramo $+$:
+\begin{equation}
+\cos\theta_{+}\,\Cplus(\theta_{+})=1,\qquad \Cplus(\theta)\simeq 1+\frac{\beta}{2}\cos\theta \ (\beta\ll1),
+\end{equation}
+da cui (eq. 106)
+\cos\theta_{+}\Bigl(1+\tfrac{\beta}{2}\cos\theta_{+}\Bigr)=1 \;\Rightarrow\; \cos\theta_{+}=1-\frac{\beta}{2}.
+Per $\theta_{+}\ll1$, $\theta_{+}\simeq \sqrt{\beta}$.
+
+\end{document}
